@@ -19,6 +19,11 @@ class NotesVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
 
 extension NotesVC: UITableViewDelegate, UITableViewDataSource {
@@ -32,6 +37,14 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.configureCell(note: notes[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let noteDetailVC = storyboard?.instantiateViewController(withIdentifier: "noteDetailVC") as? NoteDetailVC else { return }
+        noteDetailVC.note = notes[indexPath.row]
+        noteDetailVC.index = indexPath.row
+        
+        navigationController?.pushViewController(noteDetailVC, animated: true)
     }
 }
 
