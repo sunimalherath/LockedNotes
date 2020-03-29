@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="wy7-kK-fMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="wy7-kK-fMe" customClass="NoteCell" customModule="LockedNotes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wy7-kK-fMe" id="o1b-Id-k6y">
@@ -49,6 +49,10 @@
                                                 <constraint firstItem="dGK-SG-tW9" firstAttribute="trailing" secondItem="o1b-Id-k6y" secondAttribute="trailingMargin" id="sVi-0M-566"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lockImg" destination="dGK-SG-tW9" id="Okk-mU-wXC"/>
+                                            <outlet property="noteLbl" destination="FRD-TW-9Ls" id="eYv-SA-l5n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

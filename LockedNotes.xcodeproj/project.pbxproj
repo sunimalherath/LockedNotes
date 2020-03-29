@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451743522430896F0023653A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451743512430896F0023653A /* NoteCell.swift */; };
+		4517435424308A040023653A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517435324308A040023653A /* Note.swift */; };
 		45810BF024306825002C908C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45810BEF24306825002C908C /* AppDelegate.swift */; };
 		45810BF224306825002C908C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45810BF124306825002C908C /* SceneDelegate.swift */; };
 		45810BF424306825002C908C /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45810BF324306825002C908C /* NotesVC.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451743512430896F0023653A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		4517435324308A040023653A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		45810BEC24306825002C908C /* LockedNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockedNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45810BEF24306825002C908C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45810BF124306825002C908C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		45810C042430733D002C908C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				451743512430896F0023653A /* NoteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 		45810C0524307345002C908C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4517435324308A040023653A /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,9 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4517435424308A040023653A /* Note.swift in Sources */,
 				45810BF424306825002C908C /* NotesVC.swift in Sources */,
 				45810BF024306825002C908C /* AppDelegate.swift in Sources */,
 				45810BF224306825002C908C /* SceneDelegate.swift in Sources */,
+				451743522430896F0023653A /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
