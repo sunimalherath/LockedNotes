@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NotesVC.swift
 //  LockedNotes
 //
 //  Created by Sunimal Herath on 29/3/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NotesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
