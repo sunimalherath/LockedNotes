@@ -16,6 +16,7 @@
 		45810BF924306828002C908C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45810BF824306828002C908C /* Assets.xcassets */; };
 		45810BFC24306828002C908C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45810BFA24306828002C908C /* LaunchScreen.storyboard */; };
 		45E8C0DA24308ED100A72F0D /* NoteObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8C0D924308ED100A72F0D /* NoteObjects.swift */; };
+		45E8C0DC2430C40200A72F0D /* NoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8C0DB2430C40200A72F0D /* NoteDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		45810BFB24306828002C908C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45810BFD24306828002C908C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45E8C0D924308ED100A72F0D /* NoteObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteObjects.swift; sourceTree = "<group>"; };
+		45E8C0DB2430C40200A72F0D /* NoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				45810BF324306825002C908C /* NotesVC.swift */,
+				45E8C0DB2430C40200A72F0D /* NoteDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E8C0DA24308ED100A72F0D /* NoteObjects.swift in Sources */,
+				45E8C0DC2430C40200A72F0D /* NoteDetailVC.swift in Sources */,
 				4517435424308A040023653A /* Note.swift in Sources */,
 				45810BF424306825002C908C /* NotesVC.swift in Sources */,
 				45810BF024306825002C908C /* AppDelegate.swift in Sources */,
