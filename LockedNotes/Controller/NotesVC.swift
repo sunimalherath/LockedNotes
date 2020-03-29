@@ -23,11 +23,15 @@ class NotesVC: UIViewController {
 
 extension NotesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return notes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as? NoteCell else {
+            return UITableViewCell()
+        }
+        cell.configureCell(note: notes[indexPath.row])
+        return cell
     }
 }
 
