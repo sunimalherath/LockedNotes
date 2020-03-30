@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication // to use TouchID or FaceID features
 
 class NotesVC: UIViewController {
     
@@ -23,6 +24,38 @@ class NotesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    // Functions
+    func authenticateWithBioMetrics(completion: @escaping (Bool) -> Void) {
+        let authContext = LAContext()
+        let localizedReasonString = "The app uses touch ID to lock notes"
+        var authError: NSError?
+        
+        if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) { // use & in front of authError to pass the error data back to authError variable
+            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReasonString) { (success, evalError) in
+                if success {
+                    completion(true)
+                } else {
+                    guard let evalErrorString = evalError?.localizedDescription else { return }
+                    self.alertUser(withMessage: evalErrorString)
+                    completion(false)
+                }
+            }
+        } else {
+            guard let authErrorString = authError?.localizedDescription else { return }
+            alertUser(withMessage: authErrorString)
+            completion(false)
+        }
+    }
+    
+    func alertUser(withMessage message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -44,7 +77,18 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
         noteDetailVC.note = notes[indexPath.row]
         noteDetailVC.index = indexPath.row
         
-        navigationController?.pushViewController(noteDetailVC, animated: true)
+        if notes[indexPath.row].lockStatus == true {
+            authenticateWithBioMetrics { (authenticated) in
+                if authenticated {
+                    notes[indexPath.row].lockStatus = false
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(noteDetailVC, animated: true)
+                    }
+                }
+            }
+        } else {
+            navigationController?.pushViewController(noteDetailVC, animated: true)
+        }
     }
 }
 
