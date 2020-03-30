@@ -32,18 +32,24 @@ class NotesVC: UIViewController {
         let localizedReasonString = "The app uses touch ID to lock notes"
         var authError: NSError?
         
-        if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) { // use & in front of authError to pass the error data back to authError variable
-            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReasonString) { (success, evalError) in
+        if authContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) { // use & in front of authError to pass the error data back to authError variable
+            authContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: localizedReasonString) { (success, evalError) in
                 if success {
-                    completion(true)
+                    DispatchQueue.main.async {
+                        completion(true)
+                    }
                 } else {
-                    guard let evalErrorString = evalError?.localizedDescription else { return }
-                    self.alertUser(withMessage: evalErrorString)
-                    completion(false)
+                    DispatchQueue.main.async {
+                        guard let evalErrorString = evalError?.localizedDescription else { return }
+                        print(evalErrorString)
+                        self.alertUser(withMessage: evalErrorString)
+                        completion(false)
+                    }
                 }
             }
         } else {
             guard let authErrorString = authError?.localizedDescription else { return }
+            print(authErrorString)
             alertUser(withMessage: authErrorString)
             completion(false)
         }
